@@ -1,0 +1,23 @@
+@API_HostAddress = http://localhost:5144
+
+### 1. Dosya Yükle
+POST {{API_HostAddress}}/file/upload?filePath=/Users/muraterennar/Downloads/developer.png
+Accept: application/json
+
+###
+
+### 2. Görüntüleme/Paylaşma Linki Al (Tarayıcıya yapıştırmak için)
+GET {{API_HostAddress}}/file/view-link?fileName=developer.png
+Accept: application/json
+
+###
+
+### 3. Doğrudan Dosya İndir (Stream olarak çek)
+GET {{API_HostAddress}}/file/download-direct/developer.png
+Accept: application/octet-stream
+
+###
+
+### 4. Hava Durumu Testi
+GET {{API_HostAddress}}/weatherforecast/
+Accept: application/json
