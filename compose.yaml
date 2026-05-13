@@ -4,4 +4,20 @@
     build:
       context: .
       dockerfile: API/Dockerfile
+    depends_on:
+      - minio
 
+  minio:
+    image: quay.io/minio/minio
+    container_name: minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - /Users/muraterennar/minio/data:/data
+      - /Users/muraterennar/Downloads/minio.license:/minio.license
+    environment:
+      MINIO_ROOT_USER: "admin"
+      MINIO_ROOT_PASSWORD: "password123"
+      MINIO_LICENSE_FILE: "/minio.license"
+    command: server /data --console-address ":9001"

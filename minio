@@ -1,0 +1,13 @@
+docker run -d \
+  --name minio \
+  -p 9000:9000 \
+  -p 9001:9001 \
+  -v /Users/muraterennar/minio/data:/data \
+  -v /Users/muraterennar/Downloads/minio.license:/minio.license \
+  -e "MINIO_ROOT_USER=admin" \
+  -e "MINIO_ROOT_PASSWORD=password123" \
+  -e "MINIO_LICENSE_FILE=/minio.license" \
+  quay.io/minio/minio server /data --console-address ":9001"
+  
+  
+// Minio sitesinden minio.licence dosyasının alınması lazım
